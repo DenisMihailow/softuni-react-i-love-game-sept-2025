@@ -1,11 +1,12 @@
+import { Link } from "react-router";
+
 export default function Header() {
     return (
-        <h1>
             <header>
         {/* <!-- Navigation --> */}
         <nav>
-            <a className="home" href="#"> <img src="./images/logo.png" alt="logo" /> </a>
-            <a href="#">Catalog</a>
+            <Link className="home" to="/"> <img src="./images/logo.png" alt="logo" /> </Link>
+            <Link to="/games">Catalog</Link>
             {/* <!-- Logged-in users --> */}
             <div id="user">
                 <a href="#">Add Game</a>
@@ -18,6 +19,6 @@ export default function Header() {
             </div>
         </nav>
     </header>
-        </h1>
     );
 }
+//href w REactJS e ravno na "to"

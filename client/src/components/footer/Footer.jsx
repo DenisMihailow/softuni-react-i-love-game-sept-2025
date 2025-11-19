@@ -1,5 +1,7 @@
 export default function Footer() {
     return (
-         <h1>Hasmi</h1>
+         <footer>
+        <p className="center-text">React Course Exercise @ SoftUni &trade;</p>
+    </footer>
     );
 }
