@@ -14,7 +14,7 @@ function App() {
       <Route path="/games" element={<Catalog />} />
     </Routes>
 
-    <Home />
+    {/* <Home /> */}
     
     <Footer />
     </>

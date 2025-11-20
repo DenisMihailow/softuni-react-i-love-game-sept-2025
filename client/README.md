@@ -13,3 +13,5 @@
  - [x] Add BrowserRouter Component
  - [x] Add Routes
  - [x] Dynamic Navigation
+  - [x] Dynamic Catalog
+   - [x] Dynamic Home Lates Game
