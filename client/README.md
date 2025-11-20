@@ -15,3 +15,5 @@
  - [x] Dynamic Navigation
   - [x] Dynamic Catalog
    - [x] Dynamic Home Lates Game
+   - [x] Add details page
+   - [x] Delete game
