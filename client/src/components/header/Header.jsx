@@ -1,6 +1,10 @@
 import { Link } from "react-router";
 
-export default function Header() {
+export default function Header({
+    user,
+}) {
+    console.log(user?.email);
+    
     return (
             <header>
         {/* <!-- Navigation --> */}
@@ -9,7 +13,7 @@ export default function Header() {
             <Link to="/games">Catalog</Link>
             {/* <!-- Logged-in users --> */}
             <div id="user">
-                <Link to="games/create">Add Game</Link>
+                <Link to="/games/create">Add Game</Link>
                 <Link to="/logout">Logout</Link>
             </div>
             {/* <!-- Guest users --> */}
