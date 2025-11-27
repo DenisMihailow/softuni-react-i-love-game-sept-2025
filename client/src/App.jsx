@@ -11,7 +11,7 @@ import Login from "./components/login/Login"
 import Logout from "./components/logout/Logout"
 import Edit from "./components/edit/Edit"
 import UserContext from "./contexts/UserContext"
-import useRequest from "./hooks/useFetch"
+import useRequest from "./hooks/useRequest"
 
 function App() {
   const [user, setUser] = useState(null);
@@ -36,6 +36,12 @@ function App() {
   }
 
   const logoutHandler = () => {
+    return request('/users/logout')
+      .finally(() => {
+        // setUser(null)
+
+      }
+    );
   }
 
   const userContextValue = {
@@ -59,7 +65,7 @@ function App() {
         <Route path="/games/create" element={<GameCreate />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/logout" element={<Logout onLogout={logoutHandler} />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
 
       {/* <Home /> */}
