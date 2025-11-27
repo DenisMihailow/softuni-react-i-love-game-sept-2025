@@ -12,31 +12,31 @@ import Logout from "./components/logout/Logout"
 import Edit from "./components/edit/Edit"
 
 function App() {
-  const [registerUsers,setRegisterUsers] = useState([]);
   const [user, setUser] = useState(null);
 
-  const registerHandler = (email, password) => {
-    if(registerUsers.some(user => user.email === email)){
-      throw new Error('Email is taken!')
-    }
+  const registerHandler = async (email, password) => {
+    
     const newUser = {email,password};
 
-    setRegisterUsers(state => [...state, newUser]);
+    //TODO REgister API call
+    const response = await fetch('http://localhost:3030/users/register',{
+      method:'POST',
+      headers:{
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    });
 
+    const result = await response.json();
     //Login user after register
-    setUser(newUser);
+    setUser(result);
   };
 
   const loginHandler = (email, password) => {
-    const user = registerUsers.find(u => u.email === email && u.password === password);
-    if (!user) {
-      throw new Error('Invalid email or pasword');
-    }
-    setUser(user);
+    
   }
 
   const logoutHandler = () => {
-    setUser(null);
   }
 
   return (
