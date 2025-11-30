@@ -11,8 +11,8 @@ export default function useForm(callback,initialValues){
         }))
     };
 
-    const formAction = async (formData) =>{
-       await callback(values, formData);
+    const formAction =  (formData) =>{ //async
+        callback(values, formData); //await
     }
 
     const register = (fieldName) => {
@@ -25,8 +25,8 @@ export default function useForm(callback,initialValues){
     }
 
     return{
-        register,
         values,
+        register,        
         changeHandler,
         formAction
     }

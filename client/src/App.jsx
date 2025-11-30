@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <Header user={user} />
+      <Header />
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -29,8 +29,6 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
       </Routes>
-
-      {/* <Home /> */}
 
       <Footer />
       </>

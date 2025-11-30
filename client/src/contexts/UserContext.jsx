@@ -6,10 +6,10 @@ const UserContext = createContext({
     
     user:{
         email: '',
-        password:'',
+        password: '',
         _createdOn: 0,
         _id: '',
-        accessToken:''
+        accessToken: ''
     },
     registerHandler() {},
     loginHandler() {},
@@ -39,12 +39,25 @@ export function UserProvider({
     console.log(result);
 
     setUser(result);
+    console.log(setUser(result))
   }
 
   const logoutHandler = () => {
-    return request('/users/logout', 'GET',  null, { accessToken: user.accessToken })
-      .finally(() => setUser(null));    
-  };
+        if (!user || !user.accessToken) {
+        console.warn("User is not logged in — skipping logout request.");
+        setUser(null);
+        return Promise.resolve();
+    }
+
+    // Ако user съществува → изпълняваме logout заявката
+    return request('/users/logout', 'GET', null, {
+        accessToken: user.accessToken
+    })
+    .finally(() => {
+        // След logout изчистваме user
+        setUser(null);
+    });
+    };
 
   const userContextValue = {
     user,
